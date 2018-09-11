@@ -1,0 +1,97 @@
+apply plugin: 'com.android.application'
+def AAVersion = '4.4.0'
+
+android {
+    buildToolsVersion rootProject.ext.buildToolsVersion
+    compileSdkVersion rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        applicationId "com.plane.game"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+
+        ndk {
+            //选择要添加的对应cpu类型的.so库。(对应JniLibs中有相应的armeabi， armeabi-v7a 文件夹)
+            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a'
+            // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
+        }
+
+        // If you have different applicationIds for buildTypes or productFlavors uncomment this block.
+        //javaCompileOptions {
+        //    annotationProcessorOptions {
+        //        arguments = ["resourcePackageName": android.defaultConfig.applicationId]
+        //    }
+        //}
+        manifestPlaceholders = [
+                JPUSH_PKGNAME: "com.plane.game",
+                JPUSH_APPKEY : "77e7b379721ba570aa93e9cf", //JPush上注册的包名对应的appkey.
+                JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+        ]
+    }
+
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+
+    /* 问题：Error:java.util.concurrent.ExecutionException: com.android.builder.internal.aapt.AaptException:
+ 这个问题一般会在打包的时候遇到，查阅了网上很多资料都是说因为项目路径过长原因导致，但是其实很多时候并不是的，其主要原因是builde.gradle会在你打包的时候去检查你的res资源，一旦出现不规范就会出现该错误。
+ 以上是问题所在，解决方案：
+ 当然解决方案就是我们主动去禁止它检查，即在你Module的builde.gradle中添加以下代码：*/
+    aaptOptions.cruncherEnabled = false
+    aaptOptions.useNewCruncher = false
+
+}
+
+dependencies {
+    api 'com.android.support:support-v4:19.1.0'
+    annotationProcessor "org.androidannotations:androidannotations:$AAVersion"
+    implementation "org.androidannotations:androidannotations-api:$AAVersion"
+    implementation "com.android.support:appcompat-v7:$rootProject.ext.appcompatVersion"
+    implementation "com.android.support:support-v4:$rootProject.ext.appcompatVersion"
+    implementation 'com.github.f0ris.sweetalert:library:1.5.1'
+    implementation files('libs/httpclient-4.3.5.jar')
+    implementation files('libs/httpcore-4.3.2.jar')
+    implementation files('libs/httpmime-4.3.5.jar')
+    implementation files('libs/okhttp-3.3.1.jar')
+    implementation files('libs/okio-1.8.0.jar')
+    implementation files('libs/volley.jar')
+    implementation files('libs/XmDownload_1.4.jar')
+    implementation files('libs/xutils3.jar')
+
+    /*事件总线库(适用Activity之间的通信之类的)类似的还有Otto https://github.com/greenrobot/EventBus#add-eventbus-to-your-project */
+    implementation 'org.greenrobot:eventbus:3.1.1'
+
+    implementation 'com.google.code.gson:gson:2.8.5'
+    /*动态权限库EasyPermissions https://github.com/googlesamples/easypermissions */
+    implementation 'pub.devrel:easypermissions:1.3.0'
+
+    /*   极光推送*/
+    api 'cn.jiguang.sdk:jpush:3.1.5'
+    // 此处以JPush 3.1.5 版本为例。
+    api 'cn.jiguang.sdk:jcore:1.2.3'
+
+}
+

@@ -1,0 +1,83 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_b">
+    
+    <RelativeLayout
+        android:id="@+id/title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center_vertical"
+        android:background="#0A246A">
+        <ImageView
+            android:id="@+id/back_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/icon_back"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:layout_centerHorizontal="true"
+            android:textSize="16sp"
+            android:text="反馈"/>
+
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/contactEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/title_layout"
+        android:background="@android:color/white"
+        android:gravity="center_vertical"
+        android:inputType="textEmailAddress"
+        android:minHeight="40dp"
+        android:lines="1"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:textColor="@color/t_c"
+        android:hint="请输入手机号/邮箱"
+        android:textSize="15sp" />
+    <EditText
+        android:id="@+id/contentEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/contactEt"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/white"
+        android:gravity="top"
+        android:minLines="4"
+        android:maxLines="12"
+        android:lineSpacingMultiplier="1.2"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:hint="请输入反馈内容"
+        android:textColor="@color/t_c"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/commitBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:textSize="15sp"
+        android:gravity="center"
+        android:layout_below="@+id/contentEt"
+        android:layout_margin="10dp"
+        android:background="@drawable/btn_bg"
+        android:text="提交" />
+
+</RelativeLayout>
+

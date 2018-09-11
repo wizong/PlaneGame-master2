@@ -1,0 +1,6 @@
+17:41:10.439 [Task worker for ':'] ERROR o.a.i.p.ModelValidator:77 - The AndroidManifest.xml file contains the original component, and not the AndroidAnnotations generated component. Please register FeedbackActivity_ instead of FeedbackActivity
+17:41:10.439 [Task worker for ':'] WARN  o.a.i.p.ModelValidator:88 - Element com.plane.game.activity.FeedbackActivity invalidated by EActivityHandler
+17:41:10.439 [Task worker for ':'] ERROR o.a.i.p.ModelValidator:77 - The AndroidManifest.xml file contains the original component, and not the AndroidAnnotations generated component. Please register MainActivity_ instead of MainActivity
+17:41:10.440 [Task worker for ':'] WARN  o.a.i.p.ModelValidator:88 - Element com.plane.game.activity.MainActivity invalidated by EActivityHandler
+17:41:10.440 [Task worker for ':'] ERROR o.a.i.p.ModelValidator:77 - The AndroidManifest.xml file contains the original component, and not the AndroidAnnotations generated component. Please register SplashActivity_ instead of SplashActivity
+17:41:10.440 [Task worker for ':'] WARN  o.a.i.p.ModelValidator:88 - Element com.plane.game.activity.SplashActivity invalidated by EActivityHandler
