@@ -1,4 +1,0 @@
-#Wed Sep 12 10:02:12 CST 2018
-base.0=E\:\\ASWork\\Vest\\newplanegame-master2\\app\\build\\intermediates\\transforms\\dexMerger\\baidu\\debug\\20
-path.0=classes.dex
-renamed.0=classes.dex

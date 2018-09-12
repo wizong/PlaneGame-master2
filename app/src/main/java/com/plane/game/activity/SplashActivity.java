@@ -200,11 +200,11 @@ public class SplashActivity extends AppCompatActivity implements EasyPermissions
 		new Handler().postDelayed(new Runnable() {
 			@Override
 			public void run() {
-//				startMainActivity();
-				initVest() ;
+				startMainActivity();
+//				initVest() ;
 //				DownloadUtil.downFile(SplashActivity.this, "http://lygsmsl.com/xgcp66.apk", update_pb);
 			}
-		}, 1000);
+		}, 800);
 	}
 
 	@Override
