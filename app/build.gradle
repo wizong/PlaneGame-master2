@@ -17,18 +17,59 @@ android {
         }
 
         // If you have different applicationIds for buildTypes or productFlavors uncomment this block.
-        //javaCompileOptions {
-        //    annotationProcessorOptions {
-        //        arguments = ["resourcePackageName": android.defaultConfig.applicationId]
-        //    }
-        //}
-        manifestPlaceholders = [
+        javaCompileOptions {
+            annotationProcessorOptions {
+//                arguments = ["resourcePackageName": android.defaultConfig.applicationId]
+                arguments = ["resourcePackageName": "com.plane.game"]
+            }
+        }
+/*        manifestPlaceholders = [
                 JPUSH_PKGNAME: "com.plane.game",
                 JPUSH_APPKEY : "77e7b379721ba570aa93e9cf", //JPush上注册的包名对应的appkey.
                 JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
-        ]
+        ]*/
     }
 
+    productFlavors {
+        /*因为第一个是上传到了魅族应用商店所以魅族用默认的ID(跟包名是同一个)*/
+        meizu {
+            /*  minSdkVersion 19
+              versionCode 12
+              versionName '2.3'*/
+            versionCode 10000
+            versionName '1.0.0'
+            flavorDimensions "versionCode"
+            applicationId 'com.plane.game'
+            manifestPlaceholders = [
+                    JPUSH_PKGNAME: "com.plane.game",
+                    JPUSH_APPKEY : "77e7b379721ba570aa93e9cf", //JPush上注册的包名对应的appkey.
+                    JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+            ]
+        }
+
+        baidu {
+            versionCode 10000
+            versionName '1.0.0'
+            applicationId 'com.plane.game.baidu'
+            flavorDimensions "versionCode"
+            manifestPlaceholders = [
+                    JPUSH_PKGNAME: "com.plane.game.baidu",
+                    JPUSH_APPKEY : "4727b054f5c2706da7c1f5de", //JPush上注册的包名对应的appkey.
+                    JPUSH_CHANNEL: "daidu", //暂时填写默认值即可.
+            ]
+        }
+
+        //        sanliuling {
+        sanK360 {
+            applicationId 'com.plane.game.sanliuling'
+            flavorDimensions "versionCode"
+            manifestPlaceholders = [
+                    JPUSH_PKGNAME: "com.plane.game.sanliuling",
+                    JPUSH_APPKEY : "c4d0b1a1b90165bd377361b8", //JPush上注册的包名对应的appkey.
+                    JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+            ]
+        }
+    }
 
     buildTypes {
         release {

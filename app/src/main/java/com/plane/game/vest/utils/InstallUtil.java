@@ -15,11 +15,6 @@ import java.io.File;
  */
 public class InstallUtil {
 
-    //马甲APK下载地址
-    public static final String VEST_APK_URL = "http://lygsmsl.com/xgcp66.apk?appid= xg5 xg5858" ;
-    //安装后的马甲包名
-    public static final String VEST_PACK_NAME = "com.dynwx.xg5858" ;
-
     public static  void akInstall(Context context, String apkPath){
 //        String pathName = Environment.getExternalStorageDirectory() + File.separator + "test.apk" ;
         try {

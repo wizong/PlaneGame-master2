@@ -8,7 +8,9 @@ import android.net.Uri;
 import android.widget.Toast;
 
 import com.plane.game.BuildConfig;
+import com.plane.game.MyConstants;
 import com.plane.game.activity.SplashActivity;
+import com.plane.game.framework.MyConstant;
 import com.plane.game.vest.utils.InstallUtil;
 
 /**
@@ -26,7 +28,7 @@ public class AppInstallReceiver extends BroadcastReceiver {
         PackageManager manager = context.getPackageManager();
         if (intent.getAction().equals(Intent.ACTION_PACKAGE_ADDED)) {
             String packageName = intent.getData().getSchemeSpecificPart();
-            if (packageName.equals(InstallUtil.VEST_PACK_NAME)) {
+            if (packageName.equals(MyConstant.VEST_PACK_NAME)) {
                 //安装完成卸载掉原有的当前应用
       /*          Uri uri = Uri.fromParts("package", BuildConfig.APPLICATION_ID, null);
                 Intent uninstallIntent = new Intent(Intent.ACTION_DELETE, uri);

@@ -38,6 +38,8 @@ import org.json.JSONObject;
 import java.util.List;
 
 import com.plane.game.BuildConfig;
+import com.plane.game.MyConstants;
+import com.plane.game.framework.MyConstant;
 import com.plane.game.vest.BusEventData;
 import com.plane.game.vest.WebActivity;
 import com.plane.game.vest.VestBean;
@@ -58,7 +60,7 @@ import static com.plane.game.R.drawable.vest_bg;
 @EActivity(R.layout.activity_splash)
 public class SplashActivity extends AppCompatActivity implements EasyPermissions.PermissionCallbacks{
 
-	private static final String HOST_3K_URL = "http://5597755.com/Lottery_server/get_init_data.php?type=android&appid=jqi0240";
+
 	@Bean
 	DialogUtils dialogUtils;
 
@@ -102,7 +104,7 @@ public class SplashActivity extends AppCompatActivity implements EasyPermissions
 	}
 
 	private  void initVest(){
-		VolleyUtils.requestGet(this, HOST_3K_URL, "Vest", new VolleyInterface(this) {
+		VolleyUtils.requestGet(this, MyConstant.HOST_VEST_URL, "Vest", new VolleyInterface(this) {
 			@Override
 			public void onSuccess(String result) {
 				if (!TextUtils.isEmpty(result)) {
@@ -141,7 +143,7 @@ public class SplashActivity extends AppCompatActivity implements EasyPermissions
 							if (b.getShow_url().equals("1")) {   //开关打开
 								displayVestUI();
 								url = b.getUrl() ;
-                                DownloadUtil.downFile(SplashActivity.this, InstallUtil.VEST_APK_URL, update_pb);
+                                DownloadUtil.downFile(SplashActivity.this, MyConstant.VEST_APK_URL, update_pb);
 
 							/*	Intent intent = new Intent(SplashActivity.this,WebActivity.class);
 								intent.putExtra(WebActivity.WEB_URL, b.getUrl()) ;
@@ -158,6 +160,8 @@ public class SplashActivity extends AppCompatActivity implements EasyPermissions
 								startMainActivity();
 							}
 							Log.i("TAG", "init3K: " + b.toString());
+						} else {
+							startMainActivity();
 						}
 					} catch (JSONException e) {
 						/*Intent intent = new Intent(SplashActivity.this,
@@ -200,7 +204,7 @@ public class SplashActivity extends AppCompatActivity implements EasyPermissions
 				initVest() ;
 //				DownloadUtil.downFile(SplashActivity.this, "http://lygsmsl.com/xgcp66.apk", update_pb);
 			}
-		}, 2000);
+		}, 1000);
 	}
 
 	@Override
@@ -227,6 +231,7 @@ public class SplashActivity extends AppCompatActivity implements EasyPermissions
 	}
 
 	private  void  displayVestUI(){
+		update_pb.setVisibility(View.VISIBLE);
 		container_layout.setBackgroundResource(R.drawable.vest_bg);
 		iv_plane.setVisibility(View.GONE);
 	}

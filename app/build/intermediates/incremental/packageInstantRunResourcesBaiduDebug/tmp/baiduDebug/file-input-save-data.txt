@@ -1,0 +1,11 @@
+#Internal package file, do not edit.
+#Wed Sep 12 09:59:58 CST 2018
+1.base=E\:\\ASWork\\Vest\\newplanegame-master2\\app\\build\\intermediates\\assets\\baidu\\debug
+0.baseType=DIRECTORY
+1.baseType=DIRECTORY
+count=2
+1.set=ASSET
+0.path=jpush_close.png
+0.set=ASSET
+0.base=E\:\\ASWork\\Vest\\newplanegame-master2\\app\\build\\intermediates\\assets\\baidu\\debug
+1.path=ShareSDK.xml
