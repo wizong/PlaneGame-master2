@@ -39,7 +39,7 @@
         android:visibility="gone"
         android:textColor="#FFFFFFFF" />
 
-    <ProgressBar
+    <com.plane.game.vest.MyProgress
         android:id="@+id/update_pb"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

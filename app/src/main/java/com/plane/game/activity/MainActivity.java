@@ -371,8 +371,9 @@ public class MainActivity extends AppCompatActivity implements
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
 			if (!isStartFragmentShow) {
 				addStartFragment(MyConstants.GAME_STATUS_PAUSE);
+				return  true ;
 			}
-			return true;
+			return super.onKeyDown(keyCode, event);
 		}
 		return super.onKeyDown(keyCode, event);
 	}

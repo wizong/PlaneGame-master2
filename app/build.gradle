@@ -54,7 +54,7 @@ android {
             flavorDimensions "versionCode"
             manifestPlaceholders = [
                     JPUSH_PKGNAME: "com.plane.game.myth",
-                    JPUSH_APPKEY : "e97835b6ede72b860c2ea298", //JPush上注册的包名对应的appkey.
+                    JPUSH_APPKEY : "87fbf1e127ec5b4662b04824", //JPush上注册的包名对应的appkey.
                     JPUSH_CHANNEL: "eveloper-default", //暂时填写默认值即可.
             ]
         }
