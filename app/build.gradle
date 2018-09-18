@@ -50,11 +50,11 @@ android {
         myth {
             versionCode 10000
             versionName '1.0.0'
-            applicationId 'com.plane.game.myth'
+            applicationId 'com.plane.game.myth.oracle'
             flavorDimensions "versionCode"
             manifestPlaceholders = [
-                    JPUSH_PKGNAME: "com.plane.game.myth",
-                    JPUSH_APPKEY : "87fbf1e127ec5b4662b04824", //JPush上注册的包名对应的appkey.
+                    JPUSH_PKGNAME: "com.plane.game.myth.oracle",
+                    JPUSH_APPKEY : "863aff1bee6bf8f205838ae5", //JPush上注册的包名对应的appkey.
                     JPUSH_CHANNEL: "eveloper-default", //暂时填写默认值即可.
             ]
         }
